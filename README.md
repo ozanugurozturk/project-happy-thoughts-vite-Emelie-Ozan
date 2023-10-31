@@ -10,6 +10,8 @@ In this week's project, you'll be able to practice your React state skills by fe
 
 ## Getting Started with the Project
 
+We have agreed to work together as Emelie (github account: emeliese, e-mail: segell.emelie@gmail.com) & Ozan (github account: ozanugurozturk, e-mail: ozanugurozturk@gmail.com). We will firsst discuss about what to do and how to share the workload.
+
 ### Dependency Installation & Startup Development Server
 
 Once cloned, navigate to the project's root directory and this project uses npm (Node Package Manager) to manage its dependencies.
