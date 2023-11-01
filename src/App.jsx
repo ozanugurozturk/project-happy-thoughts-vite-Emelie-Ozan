@@ -1,5 +1,14 @@
+import { ThoughtContainer } from "./components/ThoughtContainer";
+
 export const App = () => {
-  return <div>Find me in src/app.jsx!</div>;
+  //importing ThoughtContainer and displaying it here
+  return (
+    <div>
+      <div>
+        <ThoughtContainer />
+      </div>
+    </div>
+  );
 };
 
 // - tweet container component
