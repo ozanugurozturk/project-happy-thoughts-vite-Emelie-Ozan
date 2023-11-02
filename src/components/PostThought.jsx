@@ -46,6 +46,7 @@ export const PostThought = ({ apiUrl, onNewThought }) => {
         const newThoughtData = await response.json();
         onNewThought(newThoughtData);
         setNewThought(""); // Clearing the input field
+        setCharCount(0); // Reseting the character count to 0
       } else if (response.status === 400) {
         const errorData = await response.json();
         setErrorMessage(errorData.message);
