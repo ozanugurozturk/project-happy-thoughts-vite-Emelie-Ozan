@@ -7,9 +7,7 @@ export const PostThought = ({ apiUrl, onNewThought }) => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
-    // according to the requirements we need to check the post action
     if (newThought.length >= 5 && newThought.length <= 140) {
-      // creating our unique post within api with POST method
       try {
         const response = await fetch(apiUrl, {
           method: "POST",
@@ -21,8 +19,11 @@ export const PostThought = ({ apiUrl, onNewThought }) => {
 
         if (response.ok) {
           const newThoughtData = await response.json();
+
+          // Call the function to update the thoughts in the App component
           onNewThought(newThoughtData);
-          setNewThought(""); // Clear the input field
+
+          setNewThought(""); // Clearing the input field
         } else {
           console.error("Failed to post thought");
         }
