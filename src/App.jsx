@@ -11,14 +11,20 @@ export const App = () => {
   );
 };
 
-// - tweet container component
 
-// - post tweet component
+// COMPONENTS THAT WE NEED:
 
-// - tweet component
-// time of tweet
-// hearts
-// message
+// inside the App.jsx we should have:
+// 1. post thought component (area that we post)
+
+// 2. Thoughts container component (filled with last posted 20 thoughts (Posted Thought component * 20))
+
+// - Posted Thought component (renders each unique post)
+// --message
+// --posting time display area (how many times ago)
+// --like button as heart symbol (user can increase the like number with clicking it)
+// --number of total likes to display (Ex: x 37 )
+
 
 // - post heart component
 
