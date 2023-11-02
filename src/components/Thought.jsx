@@ -1,20 +1,42 @@
-import React, { useEffect } from "react";
+import React from "react";
+import "./Thought.css";
 
-export const Thought = () => {
-  //TODO: create heart component and display via this component
-  const apiUrl = "https://happy-thoughts-ux7hkzgmwa-uc.a.run.app/thoughts";
+// Function to calculate time since posted
+const calculateTimeAgo = (createdAt) => {
+  const currentTime = new Date();
+  const postTime = new Date(createdAt);
+  const timeDifference = currentTime - postTime;
 
-  //fetching existing thoughts and log them to the console - in useEffect
-  const fetchThoughts = async () => {
-    await fetch(apiUrl)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
-  };
+  // Calculate and format time difference
+  // `date-fns` library can be used for better calculation acc to my researches but i do not know how to implement right now 
+  const minutesAgo = Math.floor(timeDifference / (1000 * 60));
+  if (minutesAgo < 1) {
+    return "Just now";
+  } else if (minutesAgo < 60) {
+    return `${minutesAgo}m ago`;
+  } else {
+    const hoursAgo = Math.floor(minutesAgo / 60);
+    if (hoursAgo < 24) {
+      return `${hoursAgo}h ago`;
+    } else {
+      const daysAgo = Math.floor(hoursAgo / 24);
+      return `${daysAgo}d ago`;
+    }
+  }
+};
 
-  useEffect(() => {
-    fetchThoughts();
-  }, []);
-  return <div>Thought component</div>;
+export const Thought = ({ thought }) => {
+  // Calculate the time since posted
+  const timeAgo = calculateTimeAgo(thought.createdAt);
+
+  return (
+    <div className="thought">
+      <p className="thought-message">{thought.message}</p>
+      <div className="thought-details">
+        <button className="like-button">❤️</button>
+        <span className="like-count">{thought.hearts}</span>
+        <span className="time-ago">{timeAgo}</span>
+      </div>
+    </div>
+  );
 };

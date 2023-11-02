@@ -1,12 +1,13 @@
+import React from "react";
 import { ThoughtContainer } from "./components/ThoughtContainer";
+import { PostThought } from "./components/PostThought";
 
 export const App = () => {
   //importing ThoughtContainer and displaying it here
   return (
     <div>
-      <div>
-        <ThoughtContainer />
-      </div>
+      <PostThought/>
+      <ThoughtContainer />
     </div>
   );
 };
