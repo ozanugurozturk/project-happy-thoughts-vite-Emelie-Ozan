@@ -25,4 +25,3 @@ export const Hearts = (id) => {
     </div>
   );
 };
-// 6543fbc76b4fda00102bd810
