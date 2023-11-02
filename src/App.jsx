@@ -2,12 +2,13 @@ import React from "react";
 import { ThoughtContainer } from "./components/ThoughtContainer";
 import { PostThought } from "./components/PostThought";
 
+const apiUrl = "https://happy-thoughts-ux7hkzgmwa-uc.a.run.app/thoughts"; // Declaring the API URL
+
 export const App = () => {
-  //importing ThoughtContainer and displaying it here
   return (
     <div>
-      <PostThought/>
-      <ThoughtContainer />
+      <PostThought apiUrl={apiUrl} />
+      <ThoughtContainer apiUrl={apiUrl} />
     </div>
   );
 };
