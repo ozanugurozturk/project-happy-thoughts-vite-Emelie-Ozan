@@ -1,14 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { ThoughtContainer } from "./components/ThoughtContainer";
 import { PostThought } from "./components/PostThought";
 
 const apiUrl = "https://happy-thoughts-ux7hkzgmwa-uc.a.run.app/thoughts"; // Declaring the API URL
 
 export const App = () => {
+  const [thoughts, setThoughts] = useState([]);
+
+  useEffect(() => {
+    // Fetch thoughts here to send it to our container (so we can change the array here to rerender without second API call)
+    const fetchThoughts = async () => {
+      try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        setThoughts(data);
+      } catch (error) {
+        console.error("Error fetching thoughts: ", error);
+      }
+    };
+
+    fetchThoughts();
+  }, [apiUrl]);
+
+  const addThought = (newThoughtData) => {
+    // Updating our thoughts array by adding the new thought at the beginning
+    setThoughts((previousThoughts) => [newThoughtData, ...previousThoughts]);
+  };
+
   return (
     <div>
-      <PostThought apiUrl={apiUrl} />
-      <ThoughtContainer apiUrl={apiUrl} />
+      <PostThought apiUrl={apiUrl} onNewThought={addThought} />
+      <ThoughtContainer thoughts={thoughts} />
     </div>
   );
 };
