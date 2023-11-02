@@ -4,6 +4,13 @@ import "./PostThought.css";
 export const PostThought = ({ apiUrl, onNewThought }) => {
   const [newThought, setNewThought] = useState("");
   const [errorMessage, setErrorMessage] = useState(null);
+  const [charCount, setCharCount] = useState(0);
+
+  const handleInputChange = (e) => {
+    const inputText = e.target.value;
+    setNewThought(inputText);
+    setCharCount(inputText.length);
+  };
 
   const handleFormSubmit = async (e) => {
     // When you have a form element with a submit button, clicking that button typically causes the form to be submitted, 
@@ -59,12 +66,17 @@ export const PostThought = ({ apiUrl, onNewThought }) => {
       <form onSubmit={handleFormSubmit}>
         <textarea
           value={newThought}
-          onChange={(e) => setNewThought(e.target.value)}
+          onChange={handleInputChange}
           placeholder="What's making you happy right now?"
         />
+        <p className={charCount > 140 ? "char-count-red" : ""}>
+          Characters remaining: {140 - charCount < 0 ? 0 : 140 - charCount}
+        </p>
         <button type="submit">❤️ Send Happy Thought ❤️</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
     </div>
   );
 };
+
+// we can use this if we want to continue to negative numbers when we exceed 140 char => Characters remaining: {140 - charCount} 
