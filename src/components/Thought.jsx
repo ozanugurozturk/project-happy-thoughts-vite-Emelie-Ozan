@@ -1,5 +1,6 @@
 import React from "react";
 import "./Thought.css";
+import { Hearts } from "./Hearts";
 
 // Function to calculate time since posted
 const calculateTimeAgo = (createdAt) => {
@@ -8,7 +9,7 @@ const calculateTimeAgo = (createdAt) => {
   const timeDifference = currentTime - postTime;
 
   // Calculate and format time difference
-  // `date-fns` library can be used for better calculation acc to my researches but i do not know how to implement right now 
+  // `date-fns` library can be used for better calculation acc to my researches but i do not know how to implement right now
   const minutesAgo = Math.floor(timeDifference / (1000 * 60));
   if (minutesAgo < 1) {
     return "Just now";
@@ -33,7 +34,9 @@ export const Thought = ({ thought }) => {
     <div className="thought">
       <p className="thought-message">{thought.message}</p>
       <div className="thought-details">
-        <button className="like-button">❤️</button>
+        <div className="like-button">
+          <Hearts id={thought._id} />
+        </div>
         <span className="like-count">{thought.hearts}</span>
         <span className="time-ago">{timeAgo}</span>
       </div>
