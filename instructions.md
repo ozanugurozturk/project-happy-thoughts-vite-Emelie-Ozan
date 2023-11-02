@@ -132,3 +132,5 @@ Just a quick heads-up regarding this week’s project, I have made the stretch-g
 Intermediate Stretch Goals
 When POSTing a new thought, if the message was empty, too long, or too short, you get an error message in the UI. Use this to set some sort of error state to show a friendly message to your user.
 Will cover this part during Q&A so if in doubt, join our session this morning or check the recordings
+
+##### Lighthouse usage (extension for testing the application)

@@ -15,7 +15,7 @@ export const App = () => {
         const data = await response.json();
         setThoughts(data);
       } catch (error) {
-        console.error("Error fetching thoughts: ", error);
+        console.error("Error rendering thoughts: ", error);
       }
     };
 

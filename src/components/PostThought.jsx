@@ -11,6 +11,20 @@ export const PostThought = ({ apiUrl, onNewThought }) => {
     //the form submission. ( instead of performing a full page reload or navigation.)
     e.preventDefault();
 
+    // Reset any previous error message
+    setErrorMessage(null);
+
+    if (newThought.length === 0) {
+      setErrorMessage("Text cannot be empty");
+      return;
+    } else if (newThought.length > 140) {
+      setErrorMessage("Text is too long");
+      return;
+    } else if (newThought.length < 5) {
+      setErrorMessage("Text is too short");
+      return;
+    }
+
     try {
       const response = await fetch(apiUrl, {
         method: "POST",
@@ -21,16 +35,15 @@ export const PostThought = ({ apiUrl, onNewThought }) => {
       });
 
       if (response.ok) {
-        const newThoughtData = await response.json();
         // Calling the function to update the thoughts in the App component if the response is OK (code in the range 200-299)
+        const newThoughtData = await response.json();
         onNewThought(newThoughtData);
         setNewThought(""); // Clearing the input field
-        setErrorMessage(null); // Clear any previous error message
       } else if (response.status === 400) {
         const errorData = await response.json();
-        // Handle validation error - show the error message to the user
         setErrorMessage(errorData.message);
       } else {
+        // I am still keeping it for other type of responses we get, we can change the error message
         console.error("Failed to post thought, the message must be between 5 and 140 characters.");
       }
     } catch (error) {
