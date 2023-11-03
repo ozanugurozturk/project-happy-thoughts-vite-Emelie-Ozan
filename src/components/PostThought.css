@@ -1,8 +1,15 @@
 .post-thought {
-  background-color: #fff;
+  background-color: ivory;
   border: 1px solid #ddd;
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 15px;
+  margin: 2% 15% auto;
+  box-shadow: 0px 2px 4px rgba(0, 0, 4, 4);
+  border-radius: 14px;
+}
+
+.post-thought label {
+  display: block; /* Ensure the label is on a new line */
+  font-weight: bold; /* Make the label stand out */
 }
 
 .post-thought textarea {
@@ -10,8 +17,11 @@
   padding: 10px;
   font-size: 1rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 14px;
   margin-bottom: 10px;
+  max-height: 200px;
+  resize: none;
+  box-sizing: border-box;
 }
 
 .post-thought button {
@@ -20,7 +30,7 @@
   border: none;
   padding: 10px 20px;
   font-size: 1rem;
-  border-radius: 4px;
+  border-radius: 14px;
   cursor: pointer;
 }
 
@@ -31,7 +41,7 @@
 /* Add styles for character count */
 .post-thought p {
   font-size: 0.9rem;
-  color: #333; /* Default text color for character count */
+  color: #333;
 }
 
 /* Red text color for character count when over 140 characters */
