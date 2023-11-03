@@ -1,5 +1,6 @@
 import React from "react";
 import { Thought } from "./Thought";
+import "./ThoughtContainer.css"
 
 export const ThoughtContainer = ({ thoughts }) => {
   return (
