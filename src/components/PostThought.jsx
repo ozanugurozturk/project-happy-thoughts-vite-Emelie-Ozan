@@ -65,10 +65,13 @@ export const PostThought = ({ apiUrl, onNewThought }) => {
   return (
     <div className="post-thought">
       <form onSubmit={handleFormSubmit}>
+        <label htmlFor="newThought">What's making you happy right now?</label>
         <textarea
+          id="newThought"
+          name="newThought" // Add a name attribute for accessibility
           value={newThought}
           onChange={handleInputChange}
-          placeholder="What's making you happy right now?"
+          placeholder="Share your happy thought"
         />
         <p className={charCount > 140 ? "char-count-red" : ""}>
           Characters remaining: {140 - charCount < 0 ? 0 : 140 - charCount}
