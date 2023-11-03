@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import "./Hearts.css";
 
-export const Hearts = (id) => {
-  //   const [countHearts, setCountHearts] = useState(hearts);
-  //   const clickHearts = () => {
-  //     setCountHearts(countHearts + 1);
-  //     postHeart();
-  //   };
+export const Hearts = ({ thought }) => {
+  const [countHearts, setCountHearts] = useState(thought.hearts);
+  const clickHearts = () => {
+    postHeart();
+  };
   const postHeart = async () => {
     try {
       const response = await fetch(
-        `https://happy-thoughts-ux7hkzgmwa-uc.a.run.app/thoughts/${id.id}/like`,
+        `https://happy-thoughts-ux7hkzgmwa-uc.a.run.app/thoughts/${thought._id}/like`,
         {
           method: "POST",
         }
       );
+      if (response.ok) {
+        setCountHearts(countHearts + 1);
+      }
       if (!response.ok) {
         throw new Error("Post not successful");
       }
@@ -25,11 +27,10 @@ export const Hearts = (id) => {
 
   return (
     <div>
-      <button className="like-button" onClick={postHeart}>
+      <button className="like-button" onClick={clickHearts}>
         ❤️
       </button>
+      <p>{countHearts}</p>
     </div>
   );
 };
-//
-// <p>{countHearts}</p>

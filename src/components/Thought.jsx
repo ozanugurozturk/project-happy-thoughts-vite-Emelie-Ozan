@@ -26,10 +26,6 @@ const calculateTimeAgo = (createdAt) => {
   }
 };
 
-const updateHearts = (value) => {
-  setCountHearts(value);
-};
-
 export const Thought = ({ thought }) => {
   // Calculate the time since posted
   const timeAgo = calculateTimeAgo(thought.createdAt);
@@ -39,7 +35,7 @@ export const Thought = ({ thought }) => {
       <p className="thought-message">{thought.message}</p>
       <div className="thought-details">
         <div className="like-button">
-          <Hearts id={thought._id} />
+          <Hearts thought={thought} />
         </div>
         <span className="like-count">{thought.hearts}</span>
         <span className="time-ago">{timeAgo}</span>
