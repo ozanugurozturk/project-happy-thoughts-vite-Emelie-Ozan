@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Hearts.css";
 
 export const Hearts = (id) => {
+  //   const [countHearts, setCountHearts] = useState(hearts);
+  //   const clickHearts = () => {
+  //     setCountHearts(countHearts + 1);
+  //     postHeart();
+  //   };
   const postHeart = async () => {
     try {
       const response = await fetch(
@@ -17,6 +22,7 @@ export const Hearts = (id) => {
       console.log(err);
     }
   };
+
   return (
     <div>
       <button className="like-button" onClick={postHeart}>
@@ -25,3 +31,5 @@ export const Hearts = (id) => {
     </div>
   );
 };
+//
+// <p>{countHearts}</p>

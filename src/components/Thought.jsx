@@ -26,6 +26,10 @@ const calculateTimeAgo = (createdAt) => {
   }
 };
 
+const updateHearts = (value) => {
+  setCountHearts(value);
+};
+
 export const Thought = ({ thought }) => {
   // Calculate the time since posted
   const timeAgo = calculateTimeAgo(thought.createdAt);
