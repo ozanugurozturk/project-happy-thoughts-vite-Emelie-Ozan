@@ -1,3 +1,14 @@
+@keyframes thoughtAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .thought {
   background-color: #f5f5f5;
   border: 1px solid #ddd;
@@ -5,6 +16,11 @@
   margin: 10px 0;
   display: flex;
   flex-direction: column;
+  animation: thoughtAnimation 1.0s ease-in-out; /* Adjust the duration and timing function as needed */
+}
+
+.newest-thought {
+  animation: thoughtAnimation 1.0s ease-in-out;
 }
 
 .thought-message {
