@@ -26,11 +26,12 @@ export const Hearts = ({ thought }) => {
   };
 
   return (
-    <div>
+    <div className="hearts-container">
       <button className="like-button" onClick={clickHearts}>
-        ❤️
+        <div className="heart-symbol">❤️</div>
       </button>
-      <p>{countHearts}</p>
+      <span className="like-divider">X</span>
+      <span className="like-count">{countHearts}</span>
     </div>
   );
 };
