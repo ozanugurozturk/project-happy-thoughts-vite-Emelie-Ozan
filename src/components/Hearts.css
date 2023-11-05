@@ -20,11 +20,13 @@
 
 .like-divider {
   font-size: 0.8rem;
+  font-weight: bold;
   color: #555;
 }
 
 .like-count {
   font-size: 1rem;
+  font-weight: bold;
   color: #555;
 }
 
