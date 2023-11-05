@@ -37,7 +37,6 @@ export const Thought = ({ thought, isNewest }) => {
         <div className="like-button">
           <Hearts thought={thought} />
         </div>
-        <span className="like-count">{thought.hearts}</span>
         <span className="time-ago">{timeAgo}</span>
       </div>
     </div>
