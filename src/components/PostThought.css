@@ -5,11 +5,12 @@
   margin: 2% 15% auto;
   box-shadow: 0px 2px 4px rgba(0, 0, 4, 4);
   border-radius: 14px;
+  z-index: 15;
 }
 
 .post-thought label {
-  display: block; /* Ensure the label is on a new line */
-  font-weight: bold; /* Make the label stand out */
+  display: block; 
+  font-weight: bold;
 }
 
 .post-thought textarea {
