@@ -120,6 +120,6 @@ So you’ve completed the requirements? Great job! Make sure you've committed an
 
 ### Advanced Stretch Goals
 - Keep count of how many different posts you have liked (different from how many times a post has been liked). Keep count and display it in some way. You could even go as far as to store this number in localStorage so that when the page is reloaded, the initial state can be set from the number you've stored.
-- Add an animation for when a new thought is submitted and appears in the list below
+- ❤️Add an animation for when a new thought is submitted and appears in the list below
 - Handle loading states. See hint below 👇
   When you initially fetch the list of recent thoughts, it might take a little time to get the response back from the API. During this time, you could show a loading message or spinner of some sort on the page. Use something like `const [loading, setLoading] = useState(true)` to make it so the page is loading by default, then call `setLoading(false)` once you get the response back from the API. With the new thought form and the heart button, you could choose to also show a loading state, or you could opt to do an [optimistic update](https://dev.to/tiagodcosta/being-optimistic-in-ui-511k) which means you update the UI before the API request has succeeded (making the assumption that it will be successful).
