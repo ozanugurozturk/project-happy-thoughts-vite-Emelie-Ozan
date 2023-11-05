@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { ThoughtContainer } from "./ThoughtContainer";
 import { PostThought } from "./PostThought";
+import './ThoughtsFunctionality.css'
 
 const apiUrl = "https://happy-thoughts-ux7hkzgmwa-uc.a.run.app/thoughts";
 const pollInterval = 10000; // Poll the API every 10 seconds (we can adjust as needed)
 
 export const ThoughtsFunctionality = () => {
   const [thoughts, setThoughts] = useState([]);
+  const [likedPostsCount, setLikedPostsCount] = useState(0);
 
   const fetchThoughts = async () => {
     try {
@@ -38,10 +40,20 @@ export const ThoughtsFunctionality = () => {
     setThoughts((previousThoughts) => [newThoughtData, ...previousThoughts]);
   };
 
+  const updateLikedPostsCount = () => {
+    setLikedPostsCount(likedPostsCount + 1);
+  };
+
   return (
     <div>
+      <div className="liked-posts-count">
+        You have liked {likedPostsCount} different posts.
+      </div>
       <PostThought apiUrl={apiUrl} onNewThought={addThought} />
-      <ThoughtContainer thoughts={thoughts} />
+      <ThoughtContainer
+        thoughts={thoughts}
+        updateLikedPostsCount={updateLikedPostsCount} // Passing the function to the child 
+      />
     </div>
   );
 };
