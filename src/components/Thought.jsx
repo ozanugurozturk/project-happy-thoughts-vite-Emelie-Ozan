@@ -26,12 +26,12 @@ const calculateTimeAgo = (createdAt) => {
   }
 };
 
-export const Thought = ({ thought }) => {
-  // Calculate the time since posted
+export const Thought = ({ thought, isNewest }) => {
   const timeAgo = calculateTimeAgo(thought.createdAt);
+  const thoughtClass = `thought ${isNewest ? 'newest-thought' : ''}`;
 
   return (
-    <div className="thought">
+    <div className={thoughtClass}>
       <p className="thought-message">{thought.message}</p>
       <div className="thought-details">
         <div className="like-button">
