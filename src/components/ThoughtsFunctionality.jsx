@@ -40,8 +40,19 @@ export const ThoughtsFunctionality = () => {
     setThoughts((previousThoughts) => [newThoughtData, ...previousThoughts]);
   };
 
+  useEffect(() => {
+    // Load the liked post count from localStorage when the component mounts
+    const savedCount = localStorage.getItem("likedPostsCount");
+    if (savedCount) {
+      setLikedPostsCount(parseInt(savedCount, 10)); // I did not understand this part 
+    }
+  }, []);
+
   const updateLikedPostsCount = () => {
     setLikedPostsCount(likedPostsCount + 1);
+
+    // Save the updated count to localStorage
+    localStorage.setItem("likedPostsCount", likedPostsCount + 1);
   };
 
   return (
