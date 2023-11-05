@@ -13,8 +13,8 @@ export const PostThought = ({ apiUrl, onNewThought }) => {
   };
 
   const handleFormSubmit = async (e) => {
-    // When you have a form element with a submit button, clicking that button typically causes the form to be submitted, 
-    //which results in a full page refresh or a navigation to another page. So in here we prevents the default behavior of 
+    // When you have a form element with a submit button, clicking that button typically causes the form to be submitted,
+    //which results in a full page refresh or a navigation to another page. So in here we prevents the default behavior of
     //the form submission. ( instead of performing a full page reload or navigation.)
     e.preventDefault();
 
@@ -52,10 +52,12 @@ export const PostThought = ({ apiUrl, onNewThought }) => {
         setErrorMessage(errorData.message);
       } else {
         // I am still keeping it for other type of responses we get, we can change the error message
-        console.error("Failed to post thought, the message must be between 5 and 140 characters.");
+        console.error(
+          "Failed to post thought, the message must be between 5 and 140 characters."
+        );
       }
     } catch (error) {
-      // If an error occurs in the try block (that is not related to the response status) 
+      // If an error occurs in the try block (that is not related to the response status)
       //the catch block is executed. In this block, we set a generic error message
       console.error("Error posting thought: ", error);
       setErrorMessage("Failed to post thought. Please try again.");
@@ -76,11 +78,14 @@ export const PostThought = ({ apiUrl, onNewThought }) => {
         <p className={charCount > 140 ? "char-count-red" : ""}>
           Characters remaining: {140 - charCount < 0 ? 0 : 140 - charCount}
         </p>
-        <button type="submit">❤️ Send Happy Thought ❤️</button>
+        <button type="submit">
+          <span className="submit-heart">❤️</span>Send Happy Thought
+          <span className="submit-heart">❤️</span>
+        </button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
     </div>
   );
 };
 
-// we can use this if we want to continue to negative numbers when we exceed 140 char => Characters remaining: {140 - charCount} 
+// we can use this if we want to continue to negative numbers when we exceed 140 char => Characters remaining: {140 - charCount}

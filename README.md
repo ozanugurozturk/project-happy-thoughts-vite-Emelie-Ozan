@@ -4,7 +4,7 @@
   </a>
 </h1>
 
-# Unhappy thoughts Project
+# Happy thoughts Project
 
 In this week's project, you'll be able to practice your React state skills by fetching and posting data to an API.
 
@@ -24,11 +24,12 @@ npm i && code . && npm run dev
 
 ### The Problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+We used a simple sketch using MS paint to plan out the outline of the project, and decide on the structure.
+We agreed on meeting up on voice chat to pair program and work on some thing together, and some things could be divided between us.
 
 ### View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://happy-thoughts-emelie-ozan.netlify.app/
 
 ## Instructions
 
