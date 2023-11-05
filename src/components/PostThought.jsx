@@ -79,7 +79,8 @@ export const PostThought = ({ apiUrl, onNewThought }) => {
           Characters remaining: {140 - charCount < 0 ? 0 : 140 - charCount}
         </p>
         <button type="submit">
-          <span>❤️</span> Send Happy Thought <span>❤️</span>
+          <span className="submit-heart">❤️</span>Send Happy Thought
+          <span className="submit-heart">❤️</span>
         </button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}

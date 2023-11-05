@@ -9,8 +9,9 @@
 }
 
 .post-thought label {
-  display: block; 
+  display: block;
   font-weight: bold;
+  margin-bottom: 1rem;
 }
 
 .post-thought textarea {
@@ -26,27 +27,32 @@
 }
 
 .post-thought button {
-  /* background-color: #eb6198; */
-  background-color: blue;
+  background-color: #eb6198;
   color: #fff;
   border: none;
   padding: 10px 20px;
   font-size: 1rem;
   border-radius: 14px;
   cursor: pointer;
-  content: "Send";
 }
 
-@media (min-width: 430px) {
+.submit-heart {
+  margin: 0.5rem;
+}
+
+@media (max-width: 460px) {
   .post-thought button {
     background-color: #eb6198;
     color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 10px 10px;
     font-size: 1rem;
     border-radius: 14px;
     cursor: pointer;
     content: "";
+  }
+  .submit-heart {
+    display: none;
   }
 }
 
