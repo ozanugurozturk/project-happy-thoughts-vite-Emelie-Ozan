@@ -4,20 +4,24 @@ import { PostThought } from "./PostThought";
 import './ThoughtsFunctionality.css'
 
 const apiUrl = "https://happy-thoughts-ux7hkzgmwa-uc.a.run.app/thoughts";
-const pollInterval = 10000; // Poll the API every 10 seconds (we can adjust as needed)
+const pollInterval = 100000; // Poll the API every 100 seconds (we can adjust as needed)
 
 export const ThoughtsFunctionality = () => {
   const [thoughts, setThoughts] = useState([]);
   const [likedPostsCount, setLikedPostsCount] = useState(0);
+  const [loading, setLoading] = useState(true); // Initializing loading state as true
 
   const fetchThoughts = async () => {
     try {
       // Fetch thoughts here to send it to our container (so we can change the array here to rerender without second API call)
+      setLoading(true); // Set loading to true when initiating the fetch
       const response = await fetch(apiUrl);
       const data = await response.json();
       setThoughts(data);
     } catch (error) {
       console.error("Error fetching thoughts: ", error);
+    } finally {
+      setLoading(false); // Set loading to false after the fetch completes
     }
   };
 
@@ -60,11 +64,20 @@ export const ThoughtsFunctionality = () => {
       <div className="liked-posts-count">
         You have liked {likedPostsCount} different posts.
       </div>
-      <PostThought apiUrl={apiUrl} onNewThought={addThought} />
-      <ThoughtContainer
-        thoughts={thoughts}
-        updateLikedPostsCount={updateLikedPostsCount} // Passing the function to the child 
-      />
+
+      {loading ? (
+        // Display a loading message or spinner while loading
+        <div className="loading-message">Loading thoughts...</div>
+      ) : (
+        // Display your thoughts and other content after loading is complete
+        <div>
+          <PostThought apiUrl={apiUrl} onNewThought={addThought} />
+          <ThoughtContainer
+            thoughts={thoughts}
+            updateLikedPostsCount={updateLikedPostsCount}
+          />
+        </div>
+      )}
     </div>
   );
 };
