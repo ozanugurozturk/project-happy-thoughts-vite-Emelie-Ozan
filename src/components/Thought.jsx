@@ -26,7 +26,7 @@ const calculateTimeAgo = (createdAt) => {
   }
 };
 
-export const Thought = ({ thought, isNewest }) => {
+export const Thought = ({ thought, isNewest, updateLikedPostsCount }) => {
   const timeAgo = calculateTimeAgo(thought.createdAt);
   const thoughtClass = `thought ${isNewest ? 'newest-thought' : ''}`;
 
@@ -35,7 +35,10 @@ export const Thought = ({ thought, isNewest }) => {
       <p className="thought-message">{thought.message}</p>
       <div className="thought-details">
         <div className="like-button">
-          <Hearts thought={thought} />
+          <Hearts
+            thought={thought}
+            updateLikedPostsCount={updateLikedPostsCount} // Passing the function to the child
+          />
         </div>
         <span className="time-ago">{timeAgo}</span>
       </div>

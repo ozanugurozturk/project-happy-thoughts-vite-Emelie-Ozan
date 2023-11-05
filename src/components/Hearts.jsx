@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Hearts.css";
 
-export const Hearts = ({ thought }) => {
+export const Hearts = ({ thought, updateLikedPostsCount }) => {
   const [countHearts, setCountHearts] = useState(thought.hearts);
   const clickHearts = () => {
     postHeart();
@@ -16,6 +16,10 @@ export const Hearts = ({ thought }) => {
       );
       if (response.ok) {
         setCountHearts(countHearts + 1);
+        if (!localStorage.getItem(thought._id)) {
+          localStorage.setItem(thought._id, "liked");
+          updateLikedPostsCount(); // Call the function to update the count
+        }
       }
       if (!response.ok) {
         throw new Error("Post not successful");
