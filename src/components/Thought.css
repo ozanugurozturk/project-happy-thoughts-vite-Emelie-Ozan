@@ -29,7 +29,7 @@
 
 .thought-message {
   font-size: 1.2rem;
-  overflow-x: auto;
+  word-break: break-word;
 }
 
 .thought-details {
